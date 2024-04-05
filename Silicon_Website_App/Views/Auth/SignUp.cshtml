@@ -1,0 +1,108 @@
+﻿@{
+    ViewData["Title"] = "Sign up";
+}
+
+<body class="wrapper">
+
+    <header>
+        <div class="container">
+            <a href="/index.html"><img src="~/images/Silicon Logotype - Light Mode.svg" id="logo" alt="logo"></a>
+            <div id="menu">
+                <nav>
+                    <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="overview">Overview</a>
+                    <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
+                    <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="contact">Contact</a>
+                </nav>
+            </div>
+
+            <div class="btn-switch">
+                <label>Light</label>
+                <div class="switch round">
+                    <input type="checkbox" id="toggle">
+                    <label class="slider round" for="toggle"></label>
+                </div>
+                <label>Dark</label>
+            </div>
+
+            <div class="account-buttons">
+
+                <a class="menu-link btn-gray" asp-controller="Auth" asp-action="SignIn"><i class="fa-solid fa-arrow-down-to-square fa-rotate-270"></i>Sign in</a>
+
+                <a class="menu-link btn-theme" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i>Sign up</a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <section id="signup-section">
+
+        <div class="container">
+
+            <form method="post" asp-action="SignUp" asp-controller="" novalidate>
+
+                <div class="title">
+
+                    <h1>Create Account</h1>
+                    <p class="text-m">Already have an account?<a asp-controller="Auth" asp-action="SignIn"> Sign in here.</a></p>
+
+                </div>
+
+                <div class="form-content">
+
+                    <div class="top-group">
+
+                        <div class="input-group semi-bold">
+                            <label for="fname">First name</label>
+                            <input type="text" id="fname" name="fname" placeholder="Enter your first name" />
+                        </div>
+
+                        <div class="input-group semi-bold">
+                            <label for="lname">Last name</label>
+                            <input type="text" id="lname" name="lname" placeholder="Enter your last name" />
+                        </div>
+
+                    </div>
+
+                    <div class="input-group semi-bold">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" />
+                    </div>
+
+                    <div class="input-group semi-bold">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="********" />
+                    </div>
+
+                    <div class="input-group semi-bold">
+                        <label for="confirmpassword">Confirm Password</label>
+                        <input type="password" id="confirmpassword" name="confirmpassword" placeholder="********" />
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="terms" name="terms" />
+                        <label for="terms">I agree to the <a href="terms-and-conditions">Terms</a> & <a href="terms-and-conditions">Conditions</a>.</label>
+                    </div>
+
+                    <button type="submit" class="menu-link btn-theme-s">Sign up</button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <div class="container">
+
+            <p class="text-s">&copy; 2024 Silicon. All rights reserved. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin volutpat mollis egestas. Nam luctus facilisis ultrices. Pellentesque volutpat ligula est. Mattis fermentum, at nec lacus.</p>
+
+        </div>
+
+    </footer>
+
+</body>
