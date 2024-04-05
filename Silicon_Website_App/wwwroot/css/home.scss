@@ -1,0 +1,301 @@
+@import './scss/_site.scss';
+
+#showcase{
+    position: relative;
+    overflow: hidden;
+
+    .custom-container{
+        display: flex;
+
+        .box1{
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            width: 40%;
+            margin-top: 500px;
+            padding-bottom: 50px;
+
+            .title{
+                line-height: 1.3;
+            }
+
+            a{
+                align-items: center;
+                width: 40%;
+            }
+        }
+
+        .box2{
+            .img{
+                position: absolute;
+                bottom: -350px;
+                right: 0;
+            }
+        }
+    }
+}
+
+#tools-section{
+    background-color: $gray-100;
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 100px;
+        padding-bottom: 150px;
+
+        .title{
+            text-align: center;
+            width: 50%;
+        }
+
+        .tools{
+            text-align: center;
+            display: grid;
+            grid-template-areas: "comments analytics assignees"
+                                 "notifications subtasks security";
+
+            div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 20px;
+                padding: 40px 40px;
+                border: 0.1px solid $gray-300;
+                transform: scale(1);
+                transition: background-color 0.6s ease, transform 0.6s ease;
+
+                i{
+                    font-size: 35px;
+                    margin-bottom: 20px;
+                    padding: 15px;
+                    color: $theme;
+                    transition: background-color 0.6s ease;
+                }
+
+                &:hover{
+                    transform: scale(1.05);
+                    transition: background-color 0.6s ease, transform 0.6s ease;
+                    text-decoration: none;
+                    background: $white;
+                    border: none;
+                    border-radius: 3%;
+                    z-index: 1;
+                    @include shadow-l;
+
+                    i{
+                        background-color: $gray-100;
+                        border-radius: 8%;
+                        transition: background-color 0.6s ease;
+                    }
+                }
+            }
+
+            .comments{
+                grid-area: "comments";
+                border-top: none;
+                border-left: none;
+            }
+        
+            .analytics{
+                grid-area: "analytics";
+                border-top: none;
+            }
+        
+            .assignees{
+                grid-area: "assignees";
+                border-top: none;
+                border-right: none;
+            }
+        
+            .notifications{
+                grid-area: "notifications";
+                border-bottom: none;
+                border-left: none;
+            }
+        
+            .subtasks{
+                grid-area: "subtasks";
+                border-bottom: none;
+            }
+        
+            .security{
+                grid-area: "security";
+                border-bottom: none;
+                border-right: none;
+            }
+        }
+    }
+}
+
+#light-and-dark{
+
+    .background{
+        position: relative;
+        height: 100vh;
+        background: linear-gradient(to right, $gray-900 50%, $white 50%);
+
+
+        .content{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            h1{
+                text-align: center;
+                padding-left: 30px;
+                .white{
+                    color: $white;
+                    padding-right: 20px;
+                }
+
+                .black{
+                    color: $gray-900;
+                    padding-left: 20px;
+                }
+            }
+        }
+    }
+}
+
+#manage-your-work{
+    padding: 130px;
+
+    .container{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 140px;
+
+        .manage-work{
+            display: flex;
+            flex-direction: column;
+
+            ul{
+                list-style-type: none;
+                padding: 0;
+
+                li{
+                    display: flex;
+                    margin-top: 15px;
+
+                    i{
+                        padding-top: 5px;
+                        padding-right: 10px;
+                        color: $theme;
+                        font-size: 1.1em;
+                    }
+
+                    p{
+                        margin: 0;
+                    }
+                }
+            }
+
+            .button{
+                display: flex;
+                margin-top: 15px;
+            }
+        }
+    }
+}
+
+#subscribe-section{ 
+    background-color: $gray-100;
+    padding: 100px 500px;
+
+    .container{
+
+        form{
+            .title{
+                display: flex;
+                padding-bottom: 50px;
+
+                h1{
+                    margin-right: 20px;
+                }
+            }
+
+            .content-top{
+                display: flex;
+                padding-bottom: 50px;
+
+                .input-group{
+                    display: grid;
+                    justify-content: center;
+                    column-gap: 150px;
+                    grid-template-areas: "newsletter advertising week-review"
+                                         "event weekly podcasts";
+
+                    #newsletter{
+                        grid-area: newsletter;
+                    }
+                    #advertising{
+                        grid-area: advertising;
+                    }
+                    #week-review{
+                        grid-area: week-review;
+                    }
+                    #event{
+                        grid-area: event;
+                    }
+                    #weekly{
+                        grid-area: weekly;
+                    }
+                    #podcasts{
+                        grid-area: podcasts;
+                    }
+                }
+            }
+
+            .content-bot{
+                position: relative;
+                display: flex;
+                gap: 15px;
+                padding-bottom: 10px;
+
+                i{
+                    position: absolute;
+                    left: 15px;
+                    top: 45%;
+                    transform: translateY(-50%);
+                    font-size: 1.2em;
+                    color: rgba(0, 0, 0, 0.169);
+                    opacity: 80%;
+                }
+
+                input{
+                    flex-grow: 2;
+
+                    &:not(:placeholder-shown) + i{
+
+                        display: none;
+                    }
+
+                    &::placeholder{
+                        padding-left: 30px;
+                    }
+                }
+
+                button{
+                    border: none;
+                }
+            }
+
+            span{
+                color: $theme;
+            }
+        }
+
+        p{
+            color: $gray-600;
+            .span{
+                color: $theme;
+            }
+        }
+    }
+}

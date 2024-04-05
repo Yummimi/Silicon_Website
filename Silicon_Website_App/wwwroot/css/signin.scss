@@ -1,0 +1,50 @@
+@import './scss/_site.scss';
+
+#signin-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0px;
+
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 35%;
+
+            .form-content{
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+
+                .input-group{
+                    display: flex;
+                    flex-direction: column;
+
+                    label{
+                        color: $gray-900;
+                    }
+                }
+
+                .semi-bold{
+                    font-weight: 600;
+                }
+
+                .link-container{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    a{
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+}

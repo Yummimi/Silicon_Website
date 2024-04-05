@@ -1,0 +1,25 @@
+form{
+
+    input, textarea{
+        border: solid 2px rgba(0, 0, 0, 0.115);
+        border-radius: 10px !important;
+        padding: 10px;
+    }
+
+    input[type="checkbox"]{
+        width: 15px;
+        height: 15px;
+    }
+
+    button{
+        border: none;
+    }
+
+    input::placeholder, textarea::placeholder{
+        color: rgba(0, 0, 0, 0.169);
+    }
+
+    a{
+        color: $theme;
+    }
+}

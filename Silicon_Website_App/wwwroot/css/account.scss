@@ -1,0 +1,138 @@
+@import './scss/_site.scss';
+
+header{
+
+    .avatar{
+
+        img{
+            width: 44px;
+            height: auto;
+        }
+    }
+}
+
+#account-details{
+
+    .container{
+        display: flex;
+        justify-content: center;
+        padding-top: 50px;
+        padding-bottom: 90px;
+
+        .side-bar{
+            border-right: solid 2px rgba(0, 0, 0, 0.115);
+            .profile{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                p{
+                    color: $gray-700;
+                }
+            }
+
+            nav{
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                padding-right: 10px;
+                padding-top: 15px;
+
+                a{
+                    text-decoration: none;
+                    color: $gray-800;
+                    font-weight: 600;
+                    padding-top: 10px;
+                    padding-bottom: 13px;
+                    padding-left: 25px;
+                    padding-right: 130px;
+                    border-radius: 10px;
+                    transition: background-color 0.6s ease;
+
+                    &:hover{
+                        background: $theme;
+                        @include theme-shadow;
+                        transition: background-color 0.6s ease;
+
+                        i{
+                            color: $white;
+                        }
+                    }
+
+                    i{
+                        padding-right: 15px;
+                        color: $gray-600;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+
+        .form-content{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-left: 120px;
+
+            h5{
+                color: $theme;
+            }
+
+            .basic-info{
+                border-bottom: solid 2px rgba(0, 0, 0, 0.115);
+                padding-bottom: 50px;
+            }
+
+            .address{
+                padding-top: 50px;
+
+                .btn-box{
+                    padding-bottom: 70px;
+                }
+            }
+
+            .basic-info, .address{
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+
+                .input-group{
+                    display: flex;
+                    gap: 20px;
+
+                    .input{
+                        display: flex;
+                        flex-direction: column;
+                        flex: 1;
+
+                        label{
+                            font-weight: 600;
+                            color: $gray-900;
+
+                            span{
+                                font-weight: 400;
+                                color: $gray-600;
+                            }
+                        }
+
+                        input{
+                            box-sizing: border-box;
+                            padding-right: 200px;
+                            width: auto;
+                        }
+
+                        textarea{
+                            padding-right: 200px;
+                        }
+                    }
+                }
+
+                .btn-box{
+                    display: flex;
+                    gap: 20px;
+                    padding-top: 15px;
+                }
+            }
+        }
+    }
+}
