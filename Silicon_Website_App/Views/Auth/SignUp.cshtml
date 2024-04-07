@@ -5,6 +5,10 @@
     ViewData["Title"] = Model.Title;
 }
 
+@section Styles {
+    <link rel="stylesheet" href="~/css/signup.css" asp-append-version="true" />
+}
+
 <body class="wrapper">
 
     <header>
@@ -91,7 +95,7 @@
                     <div>
                         <input asp-for="Form.TermsAndConditions" />
                         <label asp-for="Form.TermsAndConditions">I agree to the <a href="terms-and-conditions">Terms</a> & <a href="terms-and-conditions">Conditions</a>.</label>
-                        <span asp-validation-for="Form.TermsAndConditions"></span>
+                        <span class="terms" asp-validation-for="Form.TermsAndConditions"></span>
                     </div>
 
                     <button type="submit" class="menu-link btn-theme-s">@Model.Title</button>

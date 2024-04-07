@@ -23,7 +23,7 @@ $font-manrope: 'Manrope', sans-serif;
 @mixin text-xl { @include standard-text; font-size: 20px !important; }
 @mixin text-lead { @include standard-text; font-size: 24px !important; }
 
-@mixin span { @include standard-heading; font-size: 40px !important; }
+@mixin span { @include standard-heading; font-size: 40px; }
 
 @mixin d1 { @include standard-heading; font-size: 80px !important; }
 @mixin d2 { @include standard-heading; font-size: 72px !important; }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Silicon_Website_App.Helpers;
+using System.ComponentModel.DataAnnotations;
 
 namespace Silicon_Website_App.Models
 {
@@ -17,8 +18,8 @@ namespace Silicon_Website_App.Models
         [DataType(DataType.EmailAddress)]
         [Display(Name = "Email address", Prompt = "Enter your email address", Order = 2)]
         [RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z",
-        ErrorMessage = "Email is required")]
-        [Required(ErrorMessage = "Invalid email address")]
+        ErrorMessage = "Invalid email address")]
+        [Required(ErrorMessage = "Email is required")]
         public string Email { get; set; } = null!;
 
 
@@ -38,7 +39,8 @@ namespace Silicon_Website_App.Models
 
 
         [Display(Name = "I agree to the Terms & Conditions", Order = 5)]
-        [Required(ErrorMessage = "Terms & Conditions must be checked")]
+        [CheckBoxRequired(ErrorMessage = "Terms & Conditions must be checked")]
         public bool TermsAndConditions { get; set; } = false;
+
     }
 }
