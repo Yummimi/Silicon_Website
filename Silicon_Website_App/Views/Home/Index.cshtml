@@ -1,11 +1,16 @@
-﻿<header>
+﻿
+@section Styles {
+    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+}
+
+<header>
     <div class="container">
         <a href="/index.html"><img src="images/Silicon Logotype - Light Mode.svg" id="logo" alt="logo"></a>
         <div id="menu">
             <nav>
-                <a class="menu-link" href="/overview" target="_self">Overview</a>
-                <a class="menu-link" href="/features" target="_self">Features</a>
-                <a class="menu-link" href="/contact" target="_self">Contact</a>
+                <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="overview">Overview</a>
+                <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
+                <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="contact">Contact</a>
             </nav>
         </div>
 
@@ -20,9 +25,9 @@
 
         <div class="account-buttons">
 
-            <a class="menu-link btn-gray" href="/signin.html" target="_self"><i class="fa-solid fa-arrow-down-to-square fa-rotate-270"></i>Sign in</a>
+            <a class="menu-link btn-gray" asp-controller="Auth" asp-action="SignIn"><i class="fa-solid fa-arrow-down-to-square fa-rotate-270"></i>Sign in</a>
 
-            <a class="menu-link btn-theme" href="/signup.html" target="_self"><i class="fa-regular fa-user"></i>Sign up</a>
+            <a class="menu-link btn-theme" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i>Sign up</a>
 
         </div>
 
@@ -36,7 +41,7 @@
         <div class="box1">
             <div class="title d4">Task Management Assistant You Gonna Love</div>
             <p class="text-lg">We offer you a new generation of task management system. Plan, manage & track all your tasks in one flexible tool.</p>
-            <a class="menu-link btn-theme-s" href="/signin" target="_self">Get started for free</a>
+            <a class="menu-link btn-theme-s" asp-controller="Auth" asp-action="SignIn">Get started for free</a>
         </div>
 
         <div class="box2">

@@ -519,3 +519,11 @@ form a {
 #signup-section .container form .form-content .link-container a {
   font-weight: 600;
 }
+#signup-section .container form .form-content span {
+  color: rgba(153, 0, 0, 0.8);
+  font-size: 16px;
+  font-weight: 500;
+}
+#signup-section .container form .form-content .terms {
+  display: block;
+}
