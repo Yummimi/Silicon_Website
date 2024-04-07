@@ -1,53 +1,61 @@
 @import './scss/_site.scss';
 
-#signup-section{
+#signup-section {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 100px 0px;
 
-    .container{
+
+    .container {
         display: flex;
         justify-content: center;
         align-items: center;
-        
-        form{
+
+
+        form {
             display: flex;
             flex-direction: column;
             gap: 15px;
             width: 35%;
 
-            .form-content{
+            .form-content {
                 display: flex;
                 flex-direction: column;
                 gap: 15px;
 
-                .top-group{
+                .top-group {
                     display: flex;
                     gap: 20px;
                 }
 
-                .input-group{
+                .input-group {
                     display: flex;
                     flex-direction: column;
-
-                    label{
-                        color: $gray-900;
-                    }
                 }
 
-                .semi-bold{
+                .semi-bold {
                     font-weight: 600;
                 }
 
-                .link-container{
+                .link-container {
                     display: flex;
                     justify-content: center;
                     align-items: center;
 
-                    a{
+                    a {
                         font-weight: 600;
                     }
+                }
+
+                span {
+                    color: rgba(153, 0, 0, 0.8);
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+
+                .terms {
+                    display: inline-block;
                 }
             }
         }
