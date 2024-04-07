@@ -504,6 +504,11 @@ form a {
 #signin-section .container form .form-content .input-group label {
   color: #0B0F19;
 }
+#signin-section .container form .form-content span {
+  color: rgba(153, 0, 0, 0.8);
+  font-size: 16px;
+  font-weight: 500;
+}
 #signin-section .container form .form-content .semi-bold {
   font-weight: 600;
 }

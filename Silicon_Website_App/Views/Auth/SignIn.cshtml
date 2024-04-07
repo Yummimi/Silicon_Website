@@ -1,0 +1,102 @@
+﻿@model SignInViewModel
+
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/signin.css" asp-append-version="true" />
+}
+
+<body class="wrapper">
+
+    <header>
+        <div class="container">
+            <a href="/index.html"><img src="images/Silicon Logotype - Light Mode.svg" id="logo" alt="logo"></a>
+            <div id="menu">
+                <nav>
+                    <a class="menu-link" href="/overview" target="_self">Overview</a>
+                    <a class="menu-link" href="/features" target="_self">Features</a>
+                    <a class="menu-link" href="/contact" target="_self">Contact</a>
+                </nav>
+            </div>
+
+            <div class="btn-switch">
+                <label>Light</label>
+                <div class="switch round">
+                    <input type="checkbox" id="toggle">
+                    <label class="slider round" for="toggle"></label>
+                </div>
+                <label>Dark</label>
+            </div>
+
+            <div class="account-buttons">
+
+                <a class="menu-link btn-gray" href="/signin.html" target="_self"><i class="fa-solid fa-arrow-down-to-square fa-rotate-270"></i>Sign in</a>
+
+                <a class="menu-link btn-theme" href="/signup.html" target="_self"><i class="fa-regular fa-user"></i>Sign up</a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <section id="signin-section">
+
+        <div class="container">
+
+            <form method="post" asp-controller="Auth" asp-action="SignIn" novalidate>
+
+                <div class="title">
+                    <h1>Welcome Back</h1>
+                    <p class="text-m">Don’t have an account yet?<a asp-controller="Auth" asp-action="SignUp"> Sign up here.</a></p>
+
+                </div>
+
+                <div class="form-content">
+
+                    <span>@Model.ErrorMessage</span>
+                    <div class="input-group semi-bold">
+                        <label asp-for=Form.Email></label>
+                        <input asp-for="Form.Email" placeholder="Enter your email address" />
+                        <span asp-validation-for="Form.Email"></span>
+                    </div>
+
+                    <div class="input-group semi-bold">
+                        <label asp-for=Form.Password></label>
+                        <input asp-for="Form.Password" placeholder="********" />
+                        <span asp-validation-for="Form.Password"></span>
+                    </div>
+
+                    <div>
+                        <input asp-for="Form.RememberMe" />
+                        <label asp-for="Form.RememberMe">Remember me</label>
+                    </div>
+
+                    <button type="submit" class="menu-link btn-theme-s">@Model.Title</button>
+
+                    <div class="link-container">
+                        <a href="">Forgot your password?</a>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <div class="container">
+
+            <p class="text-s">&copy; 2024 Silicon. All rights reserved. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin volutpat mollis egestas. Nam luctus facilisis ultrices. Pellentesque volutpat ligula est. Mattis fermentum, at nec lacus.</p>
+
+        </div>
+
+    </footer>
+
+</body>
