@@ -2,10 +2,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Silicon_Website_App.Controllers
 {
-    public class HomeController : Controller
+    public class DefaultController : Controller
     {
 
-        public IActionResult Index()
+        public IActionResult Home()
         {
             return View();
         }
