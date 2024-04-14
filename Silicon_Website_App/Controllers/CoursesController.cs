@@ -11,7 +11,7 @@ namespace Silicon_Website_App.Controllers
     {
         private readonly HttpClient _httpClient = httpClient;
 
-        public async Task<IActionResult> Course()
+        public async Task<IActionResult> Index()
         {
             var viewModel = new CourseIndexViewModel();
 
