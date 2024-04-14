@@ -552,6 +552,11 @@ header .avatar img {
   flex-direction: column;
   gap: 25px;
 }
+#account-details .container .form-content .basic-info span, #account-details .container .form-content .address span {
+  color: rgba(153, 0, 0, 0.8);
+  font-size: 16px;
+  font-weight: 500;
+}
 #account-details .container .form-content .basic-info .input-group, #account-details .container .form-content .address .input-group {
   display: flex;
   gap: 20px;
@@ -561,13 +566,13 @@ header .avatar img {
   flex-direction: column;
   flex: 1;
 }
+#account-details .container .form-content .basic-info .input-group .input span, #account-details .container .form-content .address .input-group .input span {
+  font-weight: 400;
+  color: #9397AD;
+}
 #account-details .container .form-content .basic-info .input-group .input label, #account-details .container .form-content .address .input-group .input label {
   font-weight: 600;
   color: #0B0F19;
-}
-#account-details .container .form-content .basic-info .input-group .input label span, #account-details .container .form-content .address .input-group .input label span {
-  font-weight: 400;
-  color: #9397AD;
 }
 #account-details .container .form-content .basic-info .input-group .input input, #account-details .container .form-content .address .input-group .input input {
   box-sizing: border-box;

@@ -96,6 +96,12 @@ header{
                 flex-direction: column;
                 gap: 25px;
 
+                span {
+                    color: rgba(153, 0, 0, 0.8);
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+
                 .input-group{
                     display: flex;
                     gap: 20px;
@@ -105,14 +111,16 @@ header{
                         flex-direction: column;
                         flex: 1;
 
+                        span{
+                            font-weight: 400;
+                            color: $gray-600;
+                        }
+                        
                         label{
                             font-weight: 600;
                             color: $gray-900;
 
-                            span{
-                                font-weight: 400;
-                                color: $gray-600;
-                            }
+
                         }
 
                         input{

@@ -13,7 +13,7 @@
 
     <header>
         <div class="container">
-            <a href="/index.html"><img src="~/images/Silicon Logotype - Light Mode.svg" id="logo" alt="logo"></a>
+            <a a asp-controller="Default" asp-action="Home"><img src="~/images/Silicon Logotype - Light Mode.svg" id="logo" alt="logo"></a>
             <div id="menu">
                 <nav>
                     <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="overview">Overview</a>
@@ -58,44 +58,45 @@
 
                 <div class="form-content">
 
+                    <span>@Model.ErrorMessage</span>
                     <div class="top-group">
 
                         <div class="input-group semi-bold">
-                            <label asp-for=Form.FirstName></label>
-                            <input asp-for="Form.FirstName" placeholder="Enter your first name" />
-                            <span asp-validation-for="Form.FirstName"></span>
+                            <label asp-for=FirstName></label>
+                            <input asp-for="FirstName" placeholder="Enter your first name" />
+                            <span asp-validation-for="FirstName"></span>
                         </div>
 
                         <div class="input-group semi-bold">
-                            <label asp-for=Form.LastName></label>
-                            <input asp-for="Form.LastName" placeholder="Enter your last name" />
-                            <span asp-validation-for="Form.LastName"></span>
+                            <label asp-for=LastName></label>
+                            <input asp-for="LastName" placeholder="Enter your last name" />
+                            <span asp-validation-for="LastName"></span>
                         </div>
 
                     </div>
 
                     <div class="input-group semi-bold">
-                        <label asp-for=Form.Email></label>
-                        <input asp-for="Form.Email" placeholder="Enter your email address" />
-                        <span asp-validation-for="Form.Email"></span>
+                        <label asp-for=Email></label>
+                        <input asp-for="Email" placeholder="Enter your email address" />
+                        <span asp-validation-for="Email"></span>
                     </div>
 
                     <div class="input-group semi-bold">
-                        <label asp-for=Form.Password></label>
-                        <input asp-for="Form.Password" placeholder="********" />
-                        <span asp-validation-for="Form.Password"></span>
+                        <label asp-for=Password></label>
+                        <input asp-for="Password" placeholder="********" />
+                        <span asp-validation-for="Password"></span>
                     </div>
 
                     <div class="input-group semi-bold">
-                        <label asp-for=Form.ConfirmPassword></label>
-                        <input asp-for="Form.ConfirmPassword" placeholder="********" />
-                        <span asp-validation-for="Form.ConfirmPassword"></span>
+                        <label asp-for=ConfirmPassword></label>
+                        <input asp-for="ConfirmPassword" placeholder="********" />
+                        <span asp-validation-for="ConfirmPassword"></span>
                     </div>
 
                     <div>
-                        <input asp-for="Form.TermsAndConditions" />
-                        <label asp-for="Form.TermsAndConditions">I agree to the <a href="terms-and-conditions">Terms</a> & <a href="terms-and-conditions">Conditions</a>.</label>
-                        <span class="terms" asp-validation-for="Form.TermsAndConditions"></span>
+                        <input asp-for="TermsAndConditions" />
+                        <label asp-for="TermsAndConditions">I agree to the <a href="terms-and-conditions">Terms</a> & <a href="terms-and-conditions">Conditions</a>.</label>
+                        <span class="terms" asp-validation-for="TermsAndConditions"></span>
                     </div>
 
                     <button type="submit" class="menu-link btn-theme-s">@Model.Title</button>

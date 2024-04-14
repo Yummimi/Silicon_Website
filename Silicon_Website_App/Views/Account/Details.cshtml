@@ -1,0 +1,222 @@
+﻿@model AccountViewModel
+@inject UserManager<UserEntity> UserManager
+
+
+@{
+    ViewData["Title"] = Model.Title;
+    var user = await UserManager.GetUserAsync(User);
+}
+
+
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/account.css" asp-append-version="true" />
+}
+
+
+<header>
+    <div class="container">
+        <a asp-controller="Default" asp-action="Home"><img src="~/images/Silicon Logotype - Light Mode.svg" id="logo" alt="logo"></a>
+        <div id="menu">
+            <nav>
+                <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="overview">Overview</a>
+                <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
+                <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="contact">Contact</a>
+            </nav>
+        </div>
+
+        <div class="btn-switch">
+            <label>Light</label>
+            <div class="switch round">
+                <input type="checkbox" id="toggle">
+                <label class="slider round" for="toggle"></label>
+            </div>
+            <label>Dark</label>
+        </div>
+
+        <div class="avatar">
+
+            <img src="~/images/uploads/profiles/@user!.ProfileImage"/>
+
+        </div>
+
+    </div>
+
+</header>
+
+<section id="account-details">
+
+    <div class="container">
+
+        <div class="side-bar">
+            <div class="profile">
+                <img src="~/images/uploads/profiles/@user!.ProfileImage" />
+
+                <form encypte="multipart/form-data" method="post" asp-action="UploadProfileImage" asp-controller="Account">
+                    <input id="fileUploader" type="file" name="file" hidden />
+                    <label for="fileUploader" class="btn btn-circle btn-circle-sm"><i class="fa-regular fa-refresh"></i></label>
+                </form>
+
+                    <h5>@user.FirstName @user.LastName</h5>
+                    <p class="text-m">@user.Email</p>
+            </div>
+
+            <nav>
+
+                <a class="text-m" asp-controller="Account" asp-action="Details"><i class="fa-regular fa-gear"></i>Account Details</a>
+                <a class="text-m" asp-controller="Auth" asp-action="SignOut"><i class="fa-solid fa-arrow-left-from-bracket"></i>Sign Out</a>
+
+            </nav>
+
+        </div>
+
+        <div class="form-content">
+
+            <form method="post" asp-controller="Account" asp-action="UpdateBasicInfo" novalidate>
+
+                <div class="basic-info">
+
+                    <span>@TempData["StatusMessage"]</span>
+
+                    <div class="title">
+
+                        <h1>Account Details</h1>
+                        <h5>Basic Info</h5>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <div class="input">
+                            <label asp-for="BasicInfo!.FirstName"></label>
+                            <input asp-for="BasicInfo!.FirstName" placeholder="Enter your first name" />
+                            <span asp-validation-for="BasicInfo!.FirstName"></span>
+                        </div>
+
+                        <div class="input">
+                            <label asp-for="BasicInfo!.LastName"></label>
+                            <input asp-for="BasicInfo!.LastName" placeholder="Enter your last name" />
+                            <span asp-validation-for="BasicInfo!.FirstName"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <div class="input">
+                            <label asp-for="BasicInfo!.Email"></label>
+                            <input asp-for="BasicInfo!.Email" placeholder="Enter your email address" />
+                            <span asp-validation-for="BasicInfo!.FirstName"></span>
+                        </div>
+
+                        <div class="input">
+                            <label asp-for="BasicInfo!.PhoneNumber"></label>
+                            <input asp-for="BasicInfo!.PhoneNumber" placeholder="Enter your phone number" />
+                        </div>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <div class="input">
+
+                            <div>
+                                <label asp-for="BasicInfo!.Bio"></label><span> (optional)</span>
+                            </div>
+                            <textarea class="input" asp-for="BasicInfo!.Bio" rows="4" cols="50" placeholder="Add a short bio..."></textarea>
+
+                        </div>
+
+                    </div>
+
+                    <div class="btn-box">
+
+                        <button type="reset" class="menu-link btn-gray">Cancel</button>
+
+                        <button type="submit" class="menu-link btn-theme-s">Save changes</button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+            <form method="post" asp-controller="Account" asp-action="UpdateAddressInfo" novalidate>
+
+                <div class="address">
+
+                    <h5>Address</h5>
+
+                    <div class="input-group">
+
+                        <div class="input">
+                            <label asp-for="AddressInfo!.AddressLine_1"></label>
+                            <input asp-for="AddressInfo!.AddressLine_1" placeholder="Enter your address line" />
+                            <span asp-validation-for="AddressInfo!.AddressLine_1"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <div class="input">
+                            <div>
+                                <label asp-for="AddressInfo!.AddressLine_2"></label><span> (optional)</span>
+                            </div>
+                            <input asp-for="AddressInfo!.AddressLine_2" placeholder="Enter your second address line" />
+                            <span asp-validation-for="AddressInfo!.AddressLine_2"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <div class="input">
+                            <label asp-for="AddressInfo!.PostalCode"></label>
+                            <input asp-for="AddressInfo!.PostalCode" placeholder="Enter your postal code" />
+                            <span asp-validation-for="AddressInfo!.PostalCode"></span>
+                        </div>
+
+                        <div class="input">
+                            <label asp-for="AddressInfo!.City"></label>
+                            <input asp-for="AddressInfo!.City" placeholder="Enter your city" />
+                        </div>
+
+                    </div>
+
+                    <div class="btn-box">
+
+                        <button type="reset" class="menu-link btn-gray">Cancel</button>
+
+                        <button type="submit" class="menu-link btn-theme-s">Save changes</button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <div class="container">
+
+        <div class="social-media">
+
+            <a class="btn-social" href="www.facebook.com"><i class="fa-brands fa-square-facebook"></i></a>
+            <a class="btn-social" href="www.twitter.com"><i class="fa-brands fa-square-twitter"></i></a>
+            <a class="btn-social" href="www.instagram.com"><i class="fa-brands fa-square-instagram"></i></a>
+            <a class="btn-social" href="www.youtube.com"><i class="fa-brands fa-youtube"></i></a>
+
+        </div>
+
+        <p class="text-s">&copy; 2024 Silicon. All rights reserved. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin volutpat mollis egestas. Nam luctus facilisis ultrices. Pellentesque volutpat ligula est. Mattis fermentum, at nec lacus.</p>
+
+    </div>
+
+</footer>
