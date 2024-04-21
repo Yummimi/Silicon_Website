@@ -1,0 +1,26 @@
+﻿[
+  {
+    "outputFile": "wwwroot/css/scss/_site.css",
+    "inputFile": "wwwroot/css/scss/_site.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/account.css",
+    "inputFile": "wwwroot/css/account.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/home.css",
+    "inputFile": "wwwroot/css/home.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/signin.css",
+    "inputFile": "wwwroot/css/signin.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/signup.css",
+    "inputFile": "wwwroot/css/signup.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/courses.css",
+    "inputFile": "wwwroot/css/courses.scss"
+  }
+]

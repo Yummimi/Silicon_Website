@@ -1,5 +1,4 @@
 ﻿@model AccountViewModel
-@inject UserManager<UserEntity> UserManager
 
 
 @{
@@ -19,9 +18,19 @@
         <a asp-controller="Default" asp-action="Home"><img src="~/images/Silicon Logotype - Light Mode.svg" id="logo" alt="logo"></a>
         <div id="menu">
             <nav>
-                <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="overview">Overview</a>
-                <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
-                <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="contact">Contact</a>
+                @if (User.Identity!.IsAuthenticated)
+                {
+                    <a class="menu-link" asp-controller="Default" asp-action="Home" asp-fragment="showcase">Overview</a>
+                    <a class="menu-link" asp-controller="Default" asp-action="Home" asp-fragment="tools-section">Features</a>
+                    <a class="menu-link" asp-controller="Default" asp-action="Home" asp-fragment="contact">Contact</a>
+                    <a class="menu-link" asp-controller="Courses" asp-action="Index" asp-fragment="courses">Courses</a>
+                }
+                else
+                {
+                    <a class="menu-link" asp-controller="Default" asp-action="Home" asp-fragment="showcase">Overview</a>
+                    <a class="menu-link" asp-controller="Default" asp-action="Home" asp-fragment="tools-section">Features</a>
+                    <a class="menu-link" asp-controller="Default" asp-action="Home" asp-fragment="contact">Contact</a>
+                }
             </nav>
         </div>
 
@@ -52,7 +61,7 @@
             <div class="profile">
                 <img src="~/images/uploads/profiles/@user!.ProfileImage" />
 
-                <form encypte="multipart/form-data" method="post" asp-action="UploadProfileImage" asp-controller="Account">
+                <form enctype="multipart/form-data" method="post" asp-action="UploadProfileImage" asp-controller="Account">
                     <input id="fileUploader" type="file" name="file" hidden />
                     <label for="fileUploader" class="btn btn-circle btn-circle-sm"><i class="fa-regular fa-refresh"></i></label>
                 </form>
@@ -75,8 +84,7 @@
             <form method="post" asp-controller="Account" asp-action="UpdateBasicInfo" novalidate>
 
                 <div class="basic-info">
-
-                    <span>@TempData["StatusMessage"]</span>
+                    <span class="success-message">@TempData["StatusMessage"]</span>
 
                     <div class="title">
 

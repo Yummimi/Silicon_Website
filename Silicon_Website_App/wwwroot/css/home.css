@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+﻿@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 html, body {
   line-height: 160%;
   font-weight: 400;
@@ -465,9 +465,6 @@ form input[type=checkbox] {
 form button {
   border: none;
 }
-form input::-moz-placeholder, form textarea::-moz-placeholder {
-  color: rgba(0, 0, 0, 0.169);
-}
 form input::placeholder, form textarea::placeholder {
   color: rgba(0, 0, 0, 0.169);
 }
@@ -496,10 +493,11 @@ form a {
 #showcase .custom-container .box1 a {
   align-items: center;
   width: 40%;
+  margin-bottom: 120px;
 }
 #showcase .custom-container .box2 .img {
   position: absolute;
-  bottom: -350px;
+  bottom: -220px;
   right: 0;
 }
 
@@ -662,8 +660,7 @@ form a {
 #subscribe-section .container form .content-top .input-group {
   display: grid;
   justify-content: center;
-  -moz-column-gap: 150px;
-       column-gap: 150px;
+  column-gap: 150px;
   grid-template-areas: "newsletter advertising week-review" "event weekly podcasts";
 }
 #subscribe-section .container form .content-top .input-group #newsletter {
@@ -702,20 +699,19 @@ form a {
 #subscribe-section .container form .content-bot input {
   flex-grow: 2;
 }
-#subscribe-section .container form .content-bot input:not(:-moz-placeholder-shown) + i {
-  display: none;
-}
 #subscribe-section .container form .content-bot input:not(:placeholder-shown) + i {
   display: none;
-}
-#subscribe-section .container form .content-bot input::-moz-placeholder {
-  padding-left: 30px;
 }
 #subscribe-section .container form .content-bot input::placeholder {
   padding-left: 30px;
 }
 #subscribe-section .container form .content-bot button {
   border: none;
+}
+#subscribe-section .container form .message {
+  color: rgba(153, 0, 0, 0.8);
+  font-size: 16px;
+  font-weight: 500;
 }
 #subscribe-section .container form span {
   color: #6366F1;

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+﻿@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 html, body {
   line-height: 160%;
   font-weight: 400;
@@ -465,9 +465,6 @@ form input[type=checkbox] {
 form button {
   border: none;
 }
-form input::-moz-placeholder, form textarea::-moz-placeholder {
-  color: rgba(0, 0, 0, 0.169);
-}
 form input::placeholder, form textarea::placeholder {
   color: rgba(0, 0, 0, 0.169);
 }
@@ -476,7 +473,7 @@ form a {
 }
 
 header .avatar img {
-  width: 44px;
+  width: 50px;
   height: auto;
 }
 
@@ -493,6 +490,10 @@ header .avatar img {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+#account-details .container .side-bar .profile img {
+  width: 120px;
+  height: auto;
 }
 #account-details .container .side-bar .profile p {
   color: #565973;
@@ -551,6 +552,9 @@ header .avatar img {
   display: flex;
   flex-direction: column;
   gap: 25px;
+}
+#account-details .container .form-content .basic-info .success-message, #account-details .container .form-content .address .success-message {
+  color: #22C55E;
 }
 #account-details .container .form-content .basic-info span, #account-details .container .form-content .address span {
   color: rgba(153, 0, 0, 0.8);

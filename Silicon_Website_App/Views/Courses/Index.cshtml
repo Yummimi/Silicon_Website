@@ -3,8 +3,123 @@
 
 @{
     ViewData["Title"] = "Courses";
+    var user = await UserManager.GetUserAsync(User);
 }
 
 @section Styles {
     <link rel="stylesheet" href="~/css/courses.css" asp-append-version="true" />
 }
+
+<header>
+    <div class="container">
+        <a asp-controller="Default" asp-action="Home"><img src="~/images/Silicon Logotype - Light Mode.svg" id="logo" alt="logo"></a>
+        <div id="menu">
+            <nav>
+                @if (User.Identity!.IsAuthenticated)
+                {
+                    <a class="menu-link" asp-controller="Default" asp-action="Home" asp-fragment="showcase">Overview</a>
+                    <a class="menu-link" asp-controller="Default" asp-action="Home" asp-fragment="tools-section">Features</a>
+                    <a class="menu-link" asp-controller="Default" asp-action="Home" asp-fragment="contact">Contact</a>
+                    <a class="menu-link" asp-controller="Courses" asp-action="Index" asp-fragment="courses">Courses</a>
+                }
+                else
+                {
+                    <a class="menu-link" asp-controller="Default" asp-action="Home" asp-fragment="showcase">Overview</a>
+                    <a class="menu-link" asp-controller="Default" asp-action="Home" asp-fragment="tools-section">Features</a>
+                    <a class="menu-link" asp-controller="Default" asp-action="Home" asp-fragment="contact">Contact</a>
+                }
+            </nav>
+        </div>
+
+        <div class="btn-switch">
+            <label>Light</label>
+            <div class="switch round">
+                <input type="checkbox" id="toggle">
+                <label class="slider round" for="toggle"></label>
+            </div>
+            <label>Dark</label>
+        </div>
+
+        <div class="avatar">
+
+            <img src="~/images/uploads/profiles/@user!.ProfileImage" />
+
+        </div>
+
+    </div>
+
+</header>
+
+<section class="courses">
+    <div class="container">
+        <div class="header">
+            <h1>Courses</h1>
+            <form id="form-filters">
+                <select class="input-search-group">
+                    <option>All categories</option>
+                </select>
+                <div class="input-search-group">
+                    <input id="searchQuery" name="SearchQuery" placeholder="Search courses" />
+                    <i class="fa-regular fa-search"></i>
+                </div>
+            </form>
+        </div>
+
+        <div class="course-items">
+            @if (Model.Courses != null)
+            {
+                @foreach (var course in Model.Courses)
+                {
+                    <div class="course">
+                        <a asp-action="Details" asp-controller="Courses" asp-route-id="@course.Id">
+                            @if (course.IsBestSeller)
+                            {
+                                <div class="bestseller">Best Seller</div>
+                            }
+                            <button class="btn-box btn-circle bookmark"><i class="fa-regular fa-bookmark">d</i></button>
+                            <img src="~/images/courses/@course.Image" alt="@course.Title" />
+                            <div class="content">
+                                <h5 class="title">@course.Title</h5>
+                                <p class="author">@course.Author</p>
+                                <div class="pricing">
+                                    @if (!string.IsNullOrEmpty(course.DiscountPrice))
+                                    {
+                                        <div class="discount">@course.DiscountPrice</div>
+                                    }
+                                    <div class="original @(!string.IsNullOrEmpty(course.DiscountPrice)? "discount-enabled" : "")">@course.Price</div>
+                                </div>
+                                <div class="footer">
+                                    <div class="hours">
+                                        <i class="fa-regular fa-clock"></i> @course.Hours hours
+                                    </div>
+                                    <div class="likes">
+                                        <i class="fa-regular fa-thumbs-up"></i>@course.LikesInProcent (@course.LikesInNumbers)
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</section>
+
+<footer>
+
+    <div class="container">
+
+        <div class="social-media">
+
+            <a class="btn-social" href="www.facebook.com"><i class="fa-brands fa-square-facebook"></i></a>
+            <a class="btn-social" href="www.twitter.com"><i class="fa-brands fa-square-twitter"></i></a>
+            <a class="btn-social" href="www.instagram.com"><i class="fa-brands fa-square-instagram"></i></a>
+            <a class="btn-social" href="www.youtube.com"><i class="fa-brands fa-youtube"></i></a>
+
+        </div>
+
+        <p class="text-s">&copy; 2024 Silicon. All rights reserved. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin volutpat mollis egestas. Nam luctus facilisis ultrices. Pellentesque volutpat ligula est. Mattis fermentum, at nec lacus.</p>
+
+    </div>
+
+</footer>

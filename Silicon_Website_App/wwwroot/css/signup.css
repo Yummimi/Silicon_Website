@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+﻿@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 html, body {
   line-height: 160%;
   font-weight: 400;
@@ -465,9 +465,6 @@ form input[type=checkbox] {
 form button {
   border: none;
 }
-form input::-moz-placeholder, form textarea::-moz-placeholder {
-  color: rgba(0, 0, 0, 0.169);
-}
 form input::placeholder, form textarea::placeholder {
   color: rgba(0, 0, 0, 0.169);
 }
@@ -505,9 +502,6 @@ form a {
   display: flex;
   flex-direction: column;
 }
-#signup-section .container form .form-content .input-group label {
-  color: #0B0F19;
-}
 #signup-section .container form .form-content .semi-bold {
   font-weight: 600;
 }
@@ -519,11 +513,11 @@ form a {
 #signup-section .container form .form-content .link-container a {
   font-weight: 600;
 }
-#signup-section .container form .form-content span {
+#signup-section .container form .form-content .field-validation-error {
   color: rgba(153, 0, 0, 0.8);
   font-size: 16px;
   font-weight: 500;
 }
 #signup-section .container form .form-content .terms {
-  display: block;
+  display: inline-block;
 }

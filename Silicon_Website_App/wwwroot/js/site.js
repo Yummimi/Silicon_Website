@@ -8,11 +8,11 @@ function handleProfileImageUpload() {
         let fileUploader = document.querySelector('#fileUploader')
         if (fileUploader != undefined) {
             fileUploader.addEventListener('change', function () {
-                if (this.files.lenght > 0) {
+                if (this.files.length > 0) {
                     this.form.submit()
                 }
             })
         }
     }
-    catch { }
+    catch {console.error(error)}
 }

@@ -1,4 +1,4 @@
-﻿
+﻿@model SubscribeViewModel
 @section Styles {
     <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
 }
@@ -8,9 +8,19 @@
         <a asp-controller="Default" asp-action="Home"><img src="~/images/Silicon Logotype - Light Mode.svg" id="logo" alt="logo"></a>
         <div id="menu">
             <nav>
-                <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="overview">Overview</a>
-                <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
-                <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="contact">Contact</a>
+                @if (User.Identity!.IsAuthenticated)
+                {
+                    <a class="menu-link" asp-controller="Default" asp-action="Home" asp-fragment="showcase">Overview</a>
+                    <a class="menu-link" asp-controller="Default" asp-action="Home" asp-fragment="tools-section">Features</a>
+                    <a class="menu-link" asp-controller="Default" asp-action="Home" asp-fragment="contact">Contact</a>
+                    <a class="menu-link" asp-controller="Courses" asp-action="Index" asp-fragment="courses">Courses</a>
+                }
+                else
+                {
+                    <a class="menu-link" asp-controller="Default" asp-action="Home" asp-fragment="showcase">Overview</a>
+                    <a class="menu-link" asp-controller="Default" asp-action="Home" asp-fragment="tools-section">Features</a>
+                    <a class="menu-link" asp-controller="Default" asp-action="Home" asp-fragment="contact">Contact</a>
+                }
             </nav>
         </div>
 
@@ -25,9 +35,16 @@
 
         <div class="account-buttons">
 
-            <a class="menu-link btn-gray" asp-controller="Auth" asp-action="SignIn"><i class="fa-solid fa-arrow-down-to-square fa-rotate-270"></i>Sign in</a>
-
-            <a class="menu-link btn-theme" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i>Sign up</a>
+            @if (User.Identity!.IsAuthenticated)
+            {
+                <a class="menu-link btn-gray" asp-controller="Account" asp-action="Details"><i class="fa-solid fa-arrow-down-to-square fa-rotate-270"></i>Account details</a>
+                <a class="menu-link btn-theme" asp-controller="Auth" asp-action="SignOut"><i class="fa-regular fa-user"></i>Sign out</a>
+            }
+            else
+            {
+                <a class="menu-link btn-gray" asp-controller="Auth" asp-action="SignIn"><i class="fa-solid fa-arrow-down-to-square fa-rotate-270"></i>Sign in</a>
+                <a class="menu-link btn-theme" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i>Sign up</a>
+            }
 
         </div>
 
@@ -42,6 +59,9 @@
             <div class="title d4">Task Management Assistant You Gonna Love</div>
             <p class="text-lg">We offer you a new generation of task management system. Plan, manage & track all your tasks in one flexible tool.</p>
             <a class="menu-link btn-theme-s" asp-controller="Auth" asp-action="SignIn">Get started for free</a>
+
+            <h6>Largest companies use our tool to work efficiently</h6>
+            <img src="~/images/showcase-logos.svg" />
         </div>
 
         <div class="box2">
@@ -179,7 +199,7 @@
 
     <div class="container">
 
-        <form method="post" asp-action="Subscribe" asp-controller="" novalidate>
+        <form method="post" asp-action="Subscribe" asp-controller="Default" novalidate>
 
             <div class="title">
                 <h1>Don't Want to Miss Anything?</h1><img src="~/images/Group.svg">
@@ -192,41 +212,43 @@
                 <div class="input-group">
 
                     <div id="newsletter">
-                        <input type="checkbox" id="newsletter" name="newsletter" value="daily-newsletter" />
-                        <label for="newsletter">Daily Newsletter</label>
+                        <input type="checkbox" id="newsletter" asp-for="DailyNewsLetter" />
+                        <label asp-for="DailyNewsLetter">Daily Newsletter</label>
                     </div>
 
                     <div id="event">
-                        <input type="checkbox" id="event" name="event" value="event-updates" />
-                        <label for="event">Event Updates</label>
+                        <input type="checkbox" id="event" asp-for="EventUpdates" />
+                        <label asp-for="EventUpdates">Event Updates</label>
                     </div>
 
                     <div id="advertising">
-                        <input type="checkbox" id="advertising" name="advertising" value="advertising-updates" />
-                        <label for="advertising">Advertising Updates</label>
+                        <input type="checkbox" id="advertising" asp-for="AdvertisingUpdates" />
+                        <label asp-for="AdvertisingUpdates">Advertising Updates</label>
                     </div>
 
                     <div id="weekly">
-                        <input type="checkbox" id="weekly" name="weekly" value="startups-weekly" />
-                        <label for="weekly">Startups Weekly</label>
+                        <input type="checkbox" id="weekly" asp-for="StartupWeekly" />
+                        <label asp-for="StartupWeekly">Startups Weekly</label>
                     </div>
 
                     <div id="week-review">
-                        <input type="checkbox" id="week-review" name="week-review" value="week-in-review" />
-                        <label for="week-review">Week in Review</label>
+                        <input type="checkbox" id="week-review" asp-for="WeekinReview" />
+                        <label asp-for="WeekinReview">Week in Review</label>
                     </div>
 
                     <div id="podcasts">
-                        <input type="checkbox" id="podcasts" name="podcasts" value="podcasts" />
-                        <label for="podcasts">Podcasts</label>
+                        <input type="checkbox" id="podcasts" asp-for="Podcasts" />
+                        <label asp-for="Podcasts">Podcasts</label>
                     </div>
 
                 </div>
 
             </div>
 
+            <span class="message">@TempData["StatusMessage"]</span>
+
             <div class="content-bot">
-                <input type="email" placeholder="Your Email" id="subscribe" />
+                <input asp-for="Email" placeholder="Your Email" id="subscribe" />
                 <i class="fa-regular fa-envelope"></i>
                 <button type="submit" class="menu-link btn-theme-s">Subscribe *</button>
             </div>

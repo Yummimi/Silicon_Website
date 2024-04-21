@@ -5,40 +5,46 @@ header{
     .avatar{
 
         img{
-            width: 44px;
+            width: 50px;
             height: auto;
         }
     }
 }
 
-#account-details{
+#account-details {
 
-    .container{
+    .container {
         display: flex;
         justify-content: center;
         padding-top: 50px;
         padding-bottom: 90px;
 
-        .side-bar{
+        .side-bar {
             border-right: solid 2px rgba(0, 0, 0, 0.115);
-            .profile{
+
+            .profile {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
 
-                p{
+                img {
+                    width: 120px;
+                    height: auto;
+                }
+
+                p {
                     color: $gray-700;
                 }
             }
 
-            nav{
+            nav {
                 display: flex;
                 flex-direction: column;
                 gap: 5px;
                 padding-right: 10px;
                 padding-top: 15px;
 
-                a{
+                a {
                     text-decoration: none;
                     color: $gray-800;
                     font-weight: 600;
@@ -49,17 +55,17 @@ header{
                     border-radius: 10px;
                     transition: background-color 0.6s ease;
 
-                    &:hover{
+                    &:hover {
                         background: $theme;
                         @include theme-shadow;
                         transition: background-color 0.6s ease;
 
-                        i{
+                        i {
                             color: $white;
                         }
                     }
 
-                    i{
+                    i {
                         padding-right: 15px;
                         color: $gray-600;
                         font-weight: 500;
@@ -68,33 +74,37 @@ header{
             }
         }
 
-        .form-content{
+        .form-content {
             display: flex;
             flex-direction: column;
             align-items: center;
             padding-left: 120px;
 
-            h5{
+            h5 {
                 color: $theme;
             }
 
-            .basic-info{
+            .basic-info {
                 border-bottom: solid 2px rgba(0, 0, 0, 0.115);
                 padding-bottom: 50px;
             }
 
-            .address{
+            .address {
                 padding-top: 50px;
 
-                .btn-box{
+                .btn-box {
                     padding-bottom: 70px;
                 }
             }
 
-            .basic-info, .address{
+            .basic-info, .address {
                 display: flex;
                 flex-direction: column;
                 gap: 25px;
+
+                .success-message {
+                    color: $success;
+                }
 
                 span {
                     color: rgba(153, 0, 0, 0.8);
@@ -102,40 +112,38 @@ header{
                     font-weight: 500;
                 }
 
-                .input-group{
+                .input-group {
                     display: flex;
                     gap: 20px;
 
-                    .input{
+                    .input {
                         display: flex;
                         flex-direction: column;
                         flex: 1;
 
-                        span{
+                        span {
                             font-weight: 400;
                             color: $gray-600;
                         }
-                        
-                        label{
+
+                        label {
                             font-weight: 600;
                             color: $gray-900;
-
-
                         }
 
-                        input{
+                        input {
                             box-sizing: border-box;
                             padding-right: 200px;
                             width: auto;
                         }
 
-                        textarea{
+                        textarea {
                             padding-right: 200px;
                         }
                     }
                 }
 
-                .btn-box{
+                .btn-box {
                     display: flex;
                     gap: 20px;
                     padding-top: 15px;
